@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+<title>숫자 야구</title>
+
+<style>
+body{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+.ny {
+    background-image: url(image/MAs2.JPG); 
+    background-repeat:no-repeat; 
+    background-position: center center;
+    font-size: 20px;
+    background-size: 300px;
+    
+}
+
+
+.num {
+    text-align: center;
+    font-size: 20px;
+}
+    
+</style>
+<script type="text/javascript">
+var getNum = new Array();
+var numLength;
+var check = true;
+
+window.onload = function() {
+    numLength = document.getElementById("select").value;
+    setNumber();
+}
+
+//get random numbers
+//numbers must not be same each other
+function setNumber() {
+    var random;
+    getNum.splice(0, getNum.length);
+    while (getNum.length < numLength) {
+        random = Math.floor(Math.random() * 9) + 1;
+
+        for (var i = 0; i < getNum.length; i++) {
+            if (getNum[i] == random) {
+                check = false;
+                break;
+            }
+        }
+
+        if (check) {
+            getNum.push(random);
+        }
+        check = true;
+    }
+}
+
+//check user number
+function checkUserText() {
+    var userText = document.getElementById("userText").value;
+    var setText = document.getElementById("textArea");
+    //check if userText is number
+    for (var i = 0; i < userText.length; i++) {
+        if (userText.charCodeAt(i) < 48 || userText.charCodeAt(i) > 57
+                || userText.length != numLength) {
+            setText.innerHTML += numLength + " 자리 숫자만 가능합니다!\n";
+            check = false;
+            break;
+        }
+    }
+
+    //check strike,ball,out
+    var strike, ball;
+
+    if (check) {
+        strike = 0;
+        ball = 0;
+
+        for (var i = 0; i < getNum.length; i++) {
+            for (var k = 0; k < userText.length; k++) {
+                if ((getNum[i] == userText[k]) && (i == k)) {
+                    strike++;
+                } else if ((getNum[i] == userText[k]) && (i != k)) {
+                    ball++;
+                }
+            }
+        }
+
+        if (strike == 0 && ball == 0) {
+            setText.innerHTML += userText+" : out!\n";
+        } else if (strike == numLength) {
+            setText.innerHTML += 
+                        "정확히 맞추셨습니다.  당신이 승리하였습니다.!!\n다시 시작하려면 Restart 버튼을 눌러주세요\n";
+        } else {
+            setText.innerHTML += userText + " : ";
+            setText.innerHTML += (strike + " strike, " + ball + " ball!\n");
+        }
+    }
+    check = true;
+
+}
+
+//change difficulty
+function difficulty() {
+    numLength = document.getElementById("select").value;
+    reload();
+}
+
+//restart game
+function reload() {
+    setNumber();
+    document.getElementById("textArea").innerHTML = "";
+}
+</script>
+
+</head>
+<body>
+
+
+<header style="text-align: center; background-color: rgb(6, 29, 61); height: 150px; width: 100%;" >
+    <br>
+    <br>
+    <br> 
+        <img src="image/log.png"  width= "15%" height="50px" >
+        </header>
+        <ul id="main">
+            <li><a href="index.html">Main</a></li>
+            <li><a href="iljung.html">경기 일정</a></li>
+            <li><a href="Membership.html">멤버십</a></li>
+            <li> <a href="Picture.html">선수단 정보  </a>
+                <ul>
+                    <li><a href="Picture.html">투수</a></li>
+                    <li><a href="Cature.html">포수</a></li>
+                    <li><a href="NaeYa.html">내야수</a></li>
+                    <li><a href="OYa.html">외야수</a></li>
+                    <li><a href="staff.html">스태프</a></li>   
+                </ul>
+            </li>
+            <li><a href="Quiz1.html">게임</a></li>
+        </ul>
+                    
+    
+    <div>
+
+
+<div class="ny" >
+    <h1>
+        숫자야구
+    </h1>
+
+    <h3>
+       게임방법
+    </h3>
+
+    <ul>
+        <ol type="1">
+            <li>
+                3자리 또는 4자리 숫자와 위치가 모두 맞아야 성공입니다.
+            </li>
+
+            <li>
+                숫자는 0~9까지 구성되어 있으며, 각 숫자는 한번씩만 사용 가능합니다
+            </li>
+
+            <li>
+                숫자와 자리의 위치가 맞으면 스트라이크(S), 숫자만 맞으면 볼(B) 입니다
+            </li>
+
+            <li>
+                숫자가 하나도 맞지 않을 경우 아웃(OUT) 으로 표시됩니다.
+            </li>
+        </ol>
+    </ul>
+
+</div>
+<hr>
+<div class="num">
+<label for="userText">숫자를 입력하세요: </label>
+<input id="userText" type="text" />
+
+<br>
+
+&nbsp;length : 3 또는 4를 선택해 주세요
+
+<select id="select" onchange="difficulty()">
+    <option>3</option>
+    <option>4</option>
+</select>
+<Br>
+<button id="ch" onclick="checkUserText()">check</button>
+<button id="re" onclick="reload()">restart</button>
+
+
+<br />
+<textarea cols="30" id="textArea" readonly="readonly" rows="20"
+    style="overflow-y: scroll;"></textarea>
+
+</div>
+
+    <footer class="profile">
+        <pre>
+           
+           
+      ncdinos
+        </pre>
+    </footer>
+</body>
+</html>

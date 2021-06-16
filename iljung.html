@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>슬라이드 연습</title>
+     <style media="screen">
+      *{
+        margin: 0; padding: 0;
+      }
+      .slide{
+        width: 1000px;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+      }
+      .slide ul{
+        width: 5000px;
+        position: absolute;
+        top:0;
+        left:0;
+        font-size: 0;
+      }
+      .slide ul li{
+        display: inline-block;
+      }
+      #back{
+        position: absolute;
+        top: 250px;
+        left: 0;
+        cursor: pointer;
+        z-index: 1;
+      }
+      #next{
+        position: absolute;
+        top: 250px;
+        right: 0;
+        cursor: pointer;
+        z-index: 1;
+      }
+     </style>
+  </head>
+  <body>
+    <header style="text-align: center; background-color: rgb(6, 29, 61); height: 150px; width: 100%;" >
+      <br>
+      <br>
+      <br> 
+       <img src="image/log.png"  width= "15%" height="50px" >
+       </header>
+       <ul id="main">
+          <li><a href="index.html">Main</a></li>
+          <li><a href="iljung.html">경기 일정</a></li>
+          <li><a href="Membership.html">멤버십</a></li>
+          <li> <a href="Picture.html">선수단 정보  </a>
+              <ul>
+                  <li><a href="Picture.html">투수</a></li>
+                  <li><a href="Cature.html">포수</a></li>
+                  <li><a href="NaeYa.html">내야수</a></li>
+                  <li><a href="OYa.html">외야수</a></li>
+                  <li><a href="staff.html">스태프</a></li>   
+              </ul>
+          </li>
+          <li><a href="Quiz1.html">게임</a></li>
+      </ul>
+      <br>  <br>
+      <h1 style="text-align: center;">
+        경기 일정 및 결과
+      </h1>
+      <br><br>
+    <div class="slide">
+      <img id="back" src="image/Left.png" alt="왼쪽 화살표" width="50" height="50">
+      <ul>
+        
+        <li><img src="image/5월.JPG" alt="" width="1000" height="600"></li>
+        <li><img src="image/6월.JPG" alt="" width="1000" height="600"></li>
+        <li><img src="image/7월.JPG" alt="" width="1000" height="600"></li>
+        <li><img src="image/8월.JPG" alt="" width="1000" height="600"></li>
+        <li><img src="image/9월.JPG" alt="" width="1000" height="600"></li>
+        
+      </ul>
+      <img id="next" src="image/Right.jpg" alt="오른쪽 화살표" width="50" height="50">
+    </div>
+    
+  </body>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var imgs;
+      var img_count;
+      var img_position = 1;
+
+      imgs = $(".slide ul");
+      img_count = imgs.children().length;
+
+     
+      $('#back').click(function () {
+        back();
+      });
+      $('#next').click(function () {
+        next();
+      });
+
+      function back() {
+        if(1<img_position){
+          imgs.animate({
+            left:'+=1000px'
+          });
+          img_position--;
+        }
+      }
+      function next() {
+        if(img_count>img_position){
+          imgs.animate({
+            left:'-=1000px'
+          });
+          img_position++;
+        }
+      }
+
+    });
+  </script>
+</html>

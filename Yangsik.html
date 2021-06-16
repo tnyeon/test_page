@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<title>멤버십 신청서</title>
+</head>
+<body>
+
+
+  <header style="text-align: center; background-color: rgb(6, 29, 61); height: 150px; width: 100%;" >
+    <br>
+    <br>
+    <br> 
+     <img src="image/log.png"  width= "15%" height="50px" >
+     </header>
+     <ul id="main">
+        <li><a href="index.html">Main</a></li>
+        <li><a href="iljung.html">경기 일정</a></li>
+        <li><a href="Membership.html">멤버십</a></li>
+        <li> <a href="Picture.html">선수단 정보  </a>
+            <ul>
+                <li><a href="Picture.html">투수</a></li>
+                <li><a href="Cature.html">포수</a></li>
+                <li><a href="NaeYa.html">내야수</a></li>
+                <li><a href="OYa.html">외야수</a></li>
+                <li><a href="staff.html">스태프</a></li>   
+            </ul>
+        </li>
+        <li><a href="Quiz1.html">게임</a></li>
+    </ul>
+               
+                  
+
+<section>
+
+    <h1 class=hd style="text-align: center;">&lt; 멤버십 신청서 &gt;</h1>
+    <br><hr><br>
+    <div style="width: 600px;">
+    <fieldset style="padding: 30px; background-color:mintcream;">
+      <legend>개인 정보</legend>
+      <ul>
+        <li>
+          <label for="name"> 성명 </label>
+          <input type="text" id="name" size="20" placeholder="김단디" >
+        </li>
+        <li>
+          <label for="num"> 연락처 </label>
+          <input type="tel" id="num" size="20" placeholder="010-1234-5678">
+        </li>
+
+        <li>
+          <label for="Gender"> 성별 </label>
+          <input type="Gen" id="gen" size="20" placeholder="남">
+        </li>
+
+        <li>
+          <label for="Address"> 주소 </label>
+          <input type="Add" id="add" size="50" placeholder="경상남도 창원시 ">
+        </li>
+        <li>
+          <label for="mail"> 이메일 </label>
+          <input type="email" id="email" size="30" placeholder="dinos.naver.com">
+        </li>
+        <li>
+          <label for="acc"> 환불용 계좌 </label>
+          <input type="text" id="acc" size="30">
+          <select name="acc">
+            <option value="">은행선택</option>
+            <option value="">신한은행</option>
+            <option value="">카카오뱅크</option>
+            <option value="">새마을금고</option>
+            <option value="">농협은행</option>
+            <option value="">국민은행</option>
+            <option value="">기업은행</option>
+        </select>
+        </li>
+      </ul>
+      <br>
+      <p style="font-size: 20px; color: blue;">NC 다이노스 멤버십 가입을 진심으로 감사드립니다. <br>
+        더 많은 혜택을 드릴 수 있도록 노력하겠습니다.</p>
+    </fieldset>
+    </div>
+    <div style="width: 920px;">
+    <fieldset style="padding: 30px; margin: 10px; background-color: aliceblue;">
+      <legend>가입 기념 이벤트 응모</legend>
+      <p>어떤 것을 응모 하시겠습니까?</p>
+      <label><input type="radio" name="choice" value="U"> 선수 실착 유니폼</label>
+      <label><input type="radio" name="choice" value="B"> 선수 실제 사용 배트 및 스파이크</label>
+      <label><input type="radio" name="choice" value="D"> 선수와의 한끼 식사</label>
+      <br><br>
+
+      <p style="font-size: 25px; color: red;">유니폼과 선수 장비를 선택하신 분만 선택해 주세요</p>
+      <p>선수를 선택해 주세요</p>
+      <label><input type="radio" name="Uniform" value="양사장"> 양의지</label>
+      <label><input type="radio" name="Uniform" value="나스타"> 나성범</label>
+      <label><input type="radio" name="Uniform" value="박민우"> 박민우</label>
+      <label><input type="radio" name="Uniform" value="구창모"> 구창모</label>
+      <label><input type="radio" name="Uniform" value="알테어"> 알테어</label>
+      <br><br>
+
+      <p style="font-size: 25px; color: red;">유니폼을 선택하신 분만 선택해 주세요</p>
+      <p>사이즈를 선택해 주세요</p>
+      <label><input type="radio" name="size" value="S"> S</label>
+      <label><input type="radio" name="size" value="M"> M</label>
+      <label><input type="radio" name="size" value="L"> L</label>
+      <label><input type="radio" name="size" value="XL"> XL</label>
+  
+      <br><br>
+
+      <p style="color: blue; font-size: 25px;">NC 선수들을 위한 한 마디를 적어주세요!! 당첨률이 올라갑니다.</p>
+      <textarea name="info" rows="20" cols="100" placeholder="여기에 입력해주세요"></textarea>
+      <br><br>
+      
+      <p>멤버십에 관해 질문이 있으시면 언제든지 다음 연락처로 연락 주세요</p>
+      <p>연락처: 010-1234-5678</p>
+    </fieldset>
+
+    </div>
+    <button type="button" style="font-size: 20px; padding: 10px;" onclick="alert('신청이 완료되었습니다. 다이노스의 가족이 되신 것을 환영합니다.')">멤버십 신청</button>
+  </div>
+</div>
+</section>
+
+  <footer class="profile">
+      <p>강원대학교 | 바이오시스템 공학 전공 | 201911844 | 박수연</p>
+      <p>웹프로그래밍 기말 프로젝트</p>
+  </footer>
+
+</body>
+</html>
